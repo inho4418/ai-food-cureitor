@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Eco-Nutritionist | 1끼 3,000원대 초저가 초신선 밀키트</title>
+    <meta name="description" content="충남대학교 자취생과 청년을 위한 AI 기반 식자재 시세 최적화 및 식품영양학 전문 큐레이션 초저가·초신선 밀키트 플랫폼" />
+    <meta property="og:title" content="Campus Eco-Nutritionist | 1끼 3,000원대 초저가 초신선 밀키트" />
+    <meta property="og:description" content="고물가 시대 대학생 밥상 혁명! 충남대 식품영양 전공 최인호 큐레이터와 AI 시세 최적화가 만든 3,000원대 건강 밥상" />
+
+    <!-- Google Fonts & Pretendard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        palmi: {
+                            dark: '#1C1D1F',
+                            slate: '#2B2C2E',
+                            stone: '#F7F5F0',
+                            sand: '#EFECE6',
+                            border: '#E3DFD5',
+                            point: '#C84B31',
+                            amber: '#D97706',
+                            green: '#10B981',
+                            footer: '#22201E'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'Noto Sans KR', 'sans-serif'],
+                        serif: ['Noto Serif KR', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .font-myeongjo {
+            font-family: 'Noto Serif KR', serif;
+        }
+        /* Top-down circular dish styling */
+        .dish-shadow {
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+        }
+        .linen-bg {
+            background-color: #262729;
+            background-image: radial-gradient(#383A3D 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-white text-[#2B2C2E] font-sans antialiased selection:bg-[#C84B31] selection:text-white">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-[#1C1D1F] text-white px-5 py-3 rounded-xl shadow-2xl border border-gray-700 flex items-center gap-2 text-sm font-semibold transition-all duration-300">
+        <span id="toast-text">알림 내용</span>
+    </div>
+
+    <!-- 1. Header (Clean White Bar with Korean Gastronomy Branding) -->
+    <header class="sticky top-0 z-40 bg-white border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
+            <!-- Brand Logo Emblem -->
+            <a href="#" class="flex items-center gap-2.5">
+                <span class="w-9 h-9 rounded-full bg-[#1C1D1F] text-white font-bold flex items-center justify-center text-sm tracking-tighter">
+                    8
+                </span>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-[15px] text-gray-900 tracking-tight flex items-center gap-1 font-myeongjo">
+                        에코 뉴트리셔니스트 <span class="text-[10px] font-normal text-gray-500 font-sans tracking-normal">CAMPUS ECO</span>
+                    </span>
+                    <span class="text-[9px] text-gray-500">충남대학교 청년 식복지 프로젝트</span>
+                </div>
+            </a>
+
+            <!-- Center Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-7 text-xs font-medium text-gray-600">
+                <a href="#프로젝트소개" class="hover:text-gray-900 transition">프로젝트소개</a>
+                <a href="#대표메뉴" class="hover:text-gray-900 transition">메뉴안내</a>
+                <a href="#독창성차별성" class="hover:text-gray-900 transition">AI 원가혁신</a>
+                <a href="#수령거점" class="hover:text-gray-900 transition">거점안내</a>
+                <a href="#사전예약신청" class="hover:text-gray-900 transition">사전예약</a>
+                <a href="#학우소식" class="hover:text-gray-900 transition">학우소식</a>
+            </nav>
+
+            <!-- Right Inquiries Hotline -->
+            <div class="flex items-center gap-4">
+                <div class="text-right hidden sm:block">
+                    <div class="text-[11px] text-gray-500 flex items-center justify-end gap-1">
+                        <svg class="w-3 h-3 text-[#C84B31]" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"></path></svg>
+                        <span>신청 및 지원문의</span>
+                    </div>
+                    <div class="font-bold text-gray-900 text-base tracking-tight">042-821-5114</div>
+                </div>
+
+                <a href="#사전예약신청" class="bg-[#1C1D1F] hover:bg-black text-white text-xs font-bold px-4 py-2.5 rounded-lg transition">
+                    사전예약 (잔여 <span id="top-seats">4</span>석)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Slider Visual (Dark Slate Linen Tabletop with Round Dish Presentation) -->
+    <section class="linen-bg text-white py-16 md:py-24 relative overflow-hidden border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-12 items-center gap-8">
+                <!-- Left Narrative Overlay (Matching reference text block) -->
+                <div class="md:col-span-6 space-y-6">
+                    <span class="inline-block bg-[#C84B31] text-white text-xs font-bold px-3 py-1 rounded-sm">
+                        충남대학교 자취생 맞춤 식복지
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight font-myeongjo">
+                        에코 뉴트리셔니스트만의<br>
+                        특제 레시피와<br>
+                        <span class="text-amber-400">신선한 로컬 재료</span>의 조합!
+                    </h1>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed max-w-lg font-light">
+                        학업과 취업 준비로 바쁜 충남대 자취생 누구나 부담 없이 즐길 수 있는<br class="hidden sm:inline">
+                        식품영양학 전공자의 특제 소스와 AI 시세 분석이 빚어낸 <strong>1끼 3,000원대</strong> 초신선 밀키트
+                    </p>
+                    <div class="pt-2 flex flex-wrap items-center gap-4">
+                        <a href="#사전예약신청" class="bg-[#C84B31] hover:bg-[#B33E25] text-white font-bold text-sm px-6 py-3.5 rounded-md transition shadow-lg">
+                            선착순 20명 사전예약 신청하기
+                        </a>
+                        <a href="#대표메뉴" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-sm px-5 py-3.5 rounded-md transition">
+                            대표메뉴 살펴보기 ─→
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Top-Down Dish Flat Lay Presentation (Matching Reference Hero Photo) -->
+                <div class="md:col-span-6 relative flex items-center justify-center">
+                    <div class="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full overflow-hidden dish-shadow border-4 border-[#3D3E42] bg-[#161718]">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80" 
+                             alt="소고기 버섯 맑은 전골 밀키트" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <!-- Red pot garnish floating tag -->
+                    <div class="absolute -top-3 right-6 bg-[#C84B31] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+                        <span>특제 만능육수 팩</span>
+                    </div>
+                    <!-- Wooden cutlery card -->
+                    <div class="absolute -bottom-4 left-6 bg-[#1C1D1F]/90 backdrop-blur-md border border-white/10 text-white px-4 py-2.5 rounded-lg text-xs shadow-xl">
+                        <span class="text-amber-400 font-bold block">1끼 3,500원</span>
+                        <span class="text-gray-300">원팬 5분 조리 소포장</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Nav Arrows (Visual match) -->
+            <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/10 text-xs text-gray-400">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#C84B31]"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-gray-600"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-gray-600"></span>
+                    <span class="ml-2 font-mono text-[11px]">01 / 03</span>
+                </div>
+                <div class="text-gray-400">
+                    * 대전 오정동 농수산물도매시장 당일 새벽 경매 직수매 식재료 사용
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Section 2: "에코 뉴트리셔니스트의 대표메뉴를 소개합니다" (4 Round Plate Layout) -->
+    <section id="대표메뉴" class="py-20 md:py-28 bg-[#F7F5F0] border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- Center Header with decorative emblem -->
+            <div class="text-center mb-16">
+                <div class="text-2xl mb-1 text-gray-400">🍲</div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 font-myeongjo tracking-tight">
+                    에코 뉴트리셔니스트의 대표메뉴를 소개합니다
+                </h2>
+                <p class="text-gray-500 text-xs sm:text-sm mt-2">
+                    충남대 식품영양학 전공자가 영양을 설계하고 AI가 단가를 최적화한 1끼 3,000원대 초신선 밀키트
+                </p>
+            </div>
+
+            <!-- 4-Column Circular Dish Showcase (Exact match to PALMIAN reference) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-12">
+                <!-- Dish 1 -->
+                <div class="flex flex-col items-center text-center group cursor-pointer" onclick="openDetailModal('cnu-beef-hotpot')">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden bg-[#161718] border-4 border-[#2B2C2E] shadow-xl group-hover:scale-105 transition-transform duration-300 relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80" alt="소고기 버섯 전골" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-sm sm:text-base font-myeongjo group-hover:text-[#C84B31] transition">
+                        소고기 버섯 전골
+                    </h3>
+                    <p class="text-[11px] text-gray-500 mt-1 max-w-[160px] leading-tight">
+                        진하고 맑은 육수에 담아낸 로컬버섯의 자연
+                    </p>
+                    <div class="text-sm font-extrabold text-gray-900 mt-2">
+                        3,500 원
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="flex flex-col items-center text-center group cursor-pointer" onclick="openDetailModal('cnu-beef-sprout')">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden bg-[#161718] border-4 border-[#2B2C2E] shadow-xl group-hover:scale-105 transition-transform duration-300 relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="우삼겹 숙주 볶음" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-sm sm:text-base font-myeongjo group-hover:text-[#C84B31] transition">
+                        우삼겹 숙주 볶음
+                    </h3>
+                    <p class="text-[11px] text-gray-500 mt-1 max-w-[160px] leading-tight">
+                        센 불에 5분 만에 완성하는 아삭한 밥도둑
+                    </p>
+                    <div class="text-sm font-extrabold text-gray-900 mt-2">
+                        3,800 원
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="flex flex-col items-center text-center group cursor-pointer" onclick="openDetailModal('cnu-chicken-bowl')">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden bg-[#161718] border-4 border-[#2B2C2E] shadow-xl group-hover:scale-105 transition-transform duration-300 relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80" alt="매콤 닭안심 덮밥" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-sm sm:text-base font-myeongjo group-hover:text-[#C84B31] transition">
+                        매콤 닭안심 덮밥
+                    </h3>
+                    <p class="text-[11px] text-gray-500 mt-1 max-w-[160px] leading-tight">
+                        단백질 34g 보장과 저당 특제소스의 조화
+                    </p>
+                    <div class="text-sm font-extrabold text-gray-900 mt-2">
+                        3,200 원
+                    </div>
+                </div>
+
+                <!-- Dish 4 -->
+                <div class="flex flex-col items-center text-center group cursor-pointer" onclick="openDetailModal('cnu-tofu-gangdoenjang')">
+                    <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden bg-[#161718] border-4 border-[#2B2C2E] shadow-xl group-hover:scale-105 transition-transform duration-300 relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="두부 강된장 비빔밥" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-sm sm:text-base font-myeongjo group-hover:text-[#C84B31] transition">
+                        두부 강된장 비빔밥
+                    </h3>
+                    <p class="text-[11px] text-gray-500 mt-1 max-w-[160px] leading-tight">
+                        국산 콩 두부와 구수한 우렁강된장의 집밥
+                    </p>
+                    <div class="text-sm font-extrabold text-gray-900 mt-2">
+                        2,900 원
+                    </div>
+                </div>
+            </div>
+
+            <!-- "메뉴 더보기 ─→" Button (Matching reference button) -->
+            <div class="text-center">
+                <button onclick="openDetailModal('cnu-beef-hotpot')" class="inline-flex items-center gap-2 bg-white border border-gray-300 hover:border-gray-500 text-gray-800 text-xs font-bold px-6 py-3 rounded-sm transition">
+                    <span>메뉴 더보기</span>
+                    <span>─→</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Section 3: "사업아이템의 독창성 및 차별성" (Warm Stone Split Layout with 4 Line Icons) -->
+    <section id="독창성차별성" class="py-20 md:py-28 bg-[#EFECE6] border-b border-gray-300">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <!-- Left Feature Narrative & 4 Icons -->
+                <div class="md:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-xs text-gray-500 font-medium tracking-wide">
+                            기업 및 자취생 상생의 중심
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 font-myeongjo leading-tight mt-1">
+                            사업아이템의<br>
+                            독창성 및 차별성
+                        </h2>
+                    </div>
+
+                    <!-- 4 Horizontal Minimalist Icons Row (Exact Reference Match) -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-300">
+                        <!-- Icon 1 -->
+                        <div class="flex flex-col items-center text-center p-3">
+                            <div class="w-12 h-12 flex items-center justify-center text-2xl mb-2">
+                                🍶
+                            </div>
+                            <span class="text-xs font-bold text-gray-900">특제 저염소스</span>
+                            <span class="text-[10px] text-gray-500 mt-0.5">영양사 수제 소스</span>
+                        </div>
+                        <!-- Icon 2 -->
+                        <div class="flex flex-col items-center text-center p-3">
+                            <div class="w-12 h-12 flex items-center justify-center text-2xl mb-2">
+                                🍲
+                            </div>
+                            <span class="text-xs font-bold text-gray-900">깊은 맛의 국물</span>
+                            <span class="text-[10px] text-gray-500 mt-0.5">천연 다시마 채수</span>
+                        </div>
+                        <!-- Icon 3 -->
+                        <div class="flex flex-col items-center text-center p-3">
+                            <div class="w-12 h-12 flex items-center justify-center text-2xl mb-2">
+                                📉
+                            </div>
+                            <span class="text-xs font-bold text-gray-900">낮은 식자재 원가</span>
+                            <span class="text-[10px] text-gray-500 mt-0.5">AI 시세분석 58% 절감</span>
+                        </div>
+                        <!-- Icon 4 -->
+                        <div class="flex flex-col items-center text-center p-3">
+                            <div class="w-12 h-12 flex items-center justify-center text-2xl mb-2">
+                                📖
+                            </div>
+                            <span class="text-xs font-bold text-gray-900">트렌드를 타지 않는 공식메뉴</span>
+                            <span class="text-[10px] text-gray-500 mt-0.5">3대 필수영양소 충족</span>
+                        </div>
+                    </div>
+
+                    <!-- Button: "큐레이션 창업안내 ─→" -->
+                    <div class="pt-4">
+                        <a href="#사전예약신청" class="inline-flex items-center gap-2 bg-white border border-gray-400 hover:border-black text-gray-900 text-xs font-bold px-6 py-3 rounded-sm transition">
+                            <span>에코 뉴트리셔니스트 창직 스토리 안내</span>
+                            <span>─→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Circular Dish Photo -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="w-72 h-72 sm:w-80 sm:h-80 rounded-full overflow-hidden bg-[#161718] border-4 border-[#2B2C2E] shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80" alt="정갈한 밀키트 요리" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Section 4: 2-Card Split Banner (매장 / 조리 인테리어 & 창업/자취생 고민) -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <div class="grid md:grid-cols-2 gap-4">
+            <!-- Left Card: Kitchen Prep & Modern Interior -->
+            <div class="relative h-72 sm:h-80 rounded-lg overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="위생적인 조리 환경" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="absolute bottom-6 left-6 text-white">
+                    <div class="text-[11px] text-gray-300">충남대학교 재학생 맞춤 밀키트</div>
+                    <h3 class="text-xl font-bold font-myeongjo mt-1">
+                        에코 뉴트리셔니스트만의<br>모던하고 위생적인 소포장
+                    </h3>
+                    <div class="flex gap-1 mt-3">
+                        <span class="w-2 h-2 rounded-full bg-white"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/50"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/50"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card: Dark Slate Chalkboard "식비, 어려우시다구요?" -->
+            <div class="bg-[#2B2C2E] text-white p-8 sm:p-10 rounded-lg flex flex-col justify-center relative overflow-hidden">
+                <div class="relative z-10 space-y-4">
+                    <h3 class="text-2xl font-bold font-myeongjo">
+                        식비와 영양, 어려우시다구요?
+                    </h3>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-md">
+                        에코 뉴트리셔니스트는 식비와 영양에 대해 궁금하신 충남대 학우님들을 위하여<br>
+                        항상 최선을 다하여 진심이 담긴 밥상으로 답해드리겠습니다.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#사전예약신청" class="inline-block bg-white text-gray-900 text-xs font-bold px-4 py-2 rounded-sm hover:bg-gray-100 transition">
+                            1:1 맞춤 영양 리포트 문의
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Section 5: Store / Pickup Locator ("📍 에코 뉴트리셔니스트 수령 거점 찾기") -->
+    <section id="수령거점" class="py-16 md:py-24 bg-[#F7F5F0] border-t border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <div class="text-sm font-bold text-gray-900 flex items-center justify-center gap-1.5 font-myeongjo text-lg">
+                    <span>📍</span>
+                    <span>에코 뉴트리셔니스트 캠퍼스 수령 거점 찾기</span>
+                </div>
+                <p class="text-gray-500 text-xs mt-1">강의실 및 기숙사 동선에 맞춘 대전 유성구 거점 스테이션</p>
+            </div>
+
+            <!-- Search Filter Bar (Matching reference) -->
+            <div class="flex flex-col sm:flex-row gap-2 max-w-2xl mx-auto mb-8">
+                <select id="pickup-region-filter" class="bg-white border border-gray-300 text-xs px-4 py-3 rounded-sm focus:outline-none focus:border-black">
+                    <option value="all">지역선택 (대전 전체)</option>
+                    <option value="yuseong" selected>대전 유성구 (충남대 인근)</option>
+                </select>
+                <input id="pickup-search-input" type="text" placeholder="학과 또는 기숙사 / 동을 입력해주세요." 
+                       oninput="filterPickupStations()"
+                       class="flex-1 bg-white border border-gray-300 text-xs px-4 py-3 rounded-sm focus:outline-none focus:border-black">
+                <button onclick="filterPickupStations()" class="bg-[#1C1D1F] hover:bg-black text-white text-xs font-bold px-6 py-3 rounded-sm transition flex items-center justify-center gap-1">
+                    <span>검색하기</span>
+                    <span>─→</span>
+                </button>
+            </div>
+
+            <!-- 3 Location Result Cards with "NEW" Badge -->
+            <div id="pickup-cards-container" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Location 1 -->
+                <div class="bg-white p-5 border border-gray-200 rounded-sm hover:border-black transition cursor-pointer" onclick="selectPickup('충남대 생활관점 (창의관/누리관 앞)')">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gray-900 text-sm">충남대 생활관점</span>
+                        <span class="bg-[#C84B31] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm">NEW</span>
+                    </div>
+                    <p class="text-gray-500 text-[11px] leading-relaxed">
+                        대전 유성구 대학로 99 충남대학교 생활관 창의관 앞 무인 픽업 부스
+                    </p>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="bg-white p-5 border border-gray-200 rounded-sm hover:border-black transition cursor-pointer" onclick="selectPickup('궁동 로데오점 (궁동 412)')">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gray-900 text-sm">궁동 로데오점</span>
+                        <span class="bg-[#C84B31] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm">NEW</span>
+                    </div>
+                    <p class="text-gray-500 text-[11px] leading-relaxed">
+                        대전 유성구 궁동 대학로 123 로데오거리 중심 청년 제휴 거점
+                    </p>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="bg-white p-5 border border-gray-200 rounded-sm hover:border-black transition cursor-pointer" onclick="selectPickup('어은동 카이스트점 (어은동 108)')">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gray-900 text-sm">어은동 카이스트점</span>
+                        <span class="bg-[#C84B31] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm">NEW</span>
+                    </div>
+                    <p class="text-gray-500 text-[11px] leading-relaxed">
+                        대전 유성구 어은동 한빛아파트 상가 1층 자취생 편의 스테이션
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Section 6: Full-width Appetizing Wide Photo Banner -->
+    <section class="relative py-24 bg-cover bg-center text-white text-center" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=80');">
+        <div class="max-w-4xl mx-auto px-4 space-y-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold font-myeongjo">
+                1끼 3,000원대 초저가·초신선 영양 밀키트는<br class="hidden sm:inline">
+                오직 에코 뉴트리셔니스트에서 만나보세요
+            </h2>
+            <p class="text-gray-300 text-xs sm:text-sm max-w-xl mx-auto">
+                식비 부담은 반으로 줄이고, 건강과 영양은 100% 챙기는 대학생 밥상 혁명
+            </p>
+            <div class="pt-4">
+                <a href="#사전예약신청" class="inline-block bg-[#C84B31] hover:bg-[#B33E25] text-white text-sm font-bold px-8 py-3.5 rounded-md transition shadow-xl">
+                    선착순 20명 베타 테스터 참여하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Section 7: Application Form ("성공적인 참여를 위한 첫걸음") -->
+    <section id="사전예약신청" class="py-20 md:py-28 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="text-2xl mb-1">🥗</div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-900 font-myeongjo">
+                    성공적인 참여를 위한 첫걸음
+                </h2>
+                <p class="text-gray-500 text-xs sm:text-sm mt-1">
+                    충남대학교 재학생 선착순 20명 한정 · 1끼 3,500원 특가 혜택 (현재 잔여 <span id="form-seats" class="text-[#C84B31] font-bold">4</span>석)
+                </p>
+            </div>
+
+            <!-- Form Container matching reference layout -->
+            <div class="bg-gray-50 border border-gray-200 p-8 sm:p-10 rounded-sm">
+                <!-- Ticket view on submit -->
+                <div id="ticket-success" class="hidden text-center py-6 space-y-4">
+                    <div class="text-4xl">🎉</div>
+                    <h3 class="text-xl font-bold font-myeongjo text-gray-900">
+                        <span id="ticket-name">학우</span>님, 사전예약이 확정되었습니다!
+                    </h3>
+                    <div class="bg-[#22201E] text-white p-6 rounded-md max-w-md mx-auto text-left text-xs space-y-2">
+                        <div class="flex justify-between border-b border-gray-700 pb-2">
+                            <span class="text-gray-400">티켓 번호:</span>
+                            <span id="ticket-code" class="text-amber-400 font-bold font-mono">CNU-ECO-017</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">수령 거점:</span>
+                            <span id="ticket-pickup-loc" class="text-white font-medium">충남대 생활관점</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">체험 단가:</span>
+                            <span class="text-[#C84B31] font-bold">1끼 3,500원 (현장 확인)</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500">기재하신 연락처로 수령 일정 안내가 전송됩니다.</p>
+                </div>
+
+                <!-- Main Form (Left: inputs / Right: textarea) -->
+                <form id="main-reservation-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Left Fields -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">이름</label>
+                                <input id="form-input-name" type="text" required placeholder="성명을 입력하세요" 
+                                       class="w-full bg-white border border-gray-300 text-xs px-3.5 py-2.5 rounded-sm focus:outline-none focus:border-black">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">연락처</label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <input id="form-phone-1" type="text" value="010" class="bg-white border border-gray-300 text-xs text-center py-2.5 rounded-sm">
+                                    <input id="form-phone-2" type="text" required placeholder="1234" maxlength="4" class="bg-white border border-gray-300 text-xs text-center py-2.5 rounded-sm">
+                                    <input id="form-phone-3" type="text" required placeholder="5678" maxlength="4" class="bg-white border border-gray-300 text-xs text-center py-2.5 rounded-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 mb-1">희망거점지역</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <select class="bg-white border border-gray-300 text-xs py-2.5 px-2 rounded-sm">
+                                        <option>대전 유성구</option>
+                                    </select>
+                                    <select id="form-pickup-select" class="bg-white border border-gray-300 text-xs py-2.5 px-2 rounded-sm">
+                                        <option value="충남대 생활관점">충남대 생활관점</option>
+                                        <option value="궁동 로데오점">궁동 로데오점</option>
+                                        <option value="어은동 카이스트점">어은동 카이스트점</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Fields (Textarea) -->
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 mb-1">체험 희망메뉴 및 요청사항</label>
+                            <textarea id="form-notes" rows="6" placeholder="체험을 원하시는 밀키트 메뉴나 식단 특이사항(알레르기, 비선호 식재료 등)을 적어주세요." 
+                                      class="w-full bg-white border border-gray-300 text-xs p-3 rounded-sm focus:outline-none focus:border-black resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Consent & Submit (Matching reference) -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between pt-4 border-t border-gray-200 gap-4">
+                        <label class="flex items-center gap-2 text-xs text-gray-600 cursor-pointer">
+                            <input type="checkbox" required checked class="accent-[#C84B31]">
+                            <span>개인정보수집 및 이용안내 동의 (필수)</span>
+                        </label>
+
+                        <button type="submit" class="w-full sm:w-auto bg-[#1C1D1F] hover:bg-black text-white text-xs font-bold px-8 py-3 rounded-sm transition flex items-center justify-center gap-2">
+                            <span>신청하기</span>
+                            <span>─→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Footer (Matching reference's Deep Charcoal / Espresso Footer) -->
+    <footer class="bg-[#22201E] text-gray-400 text-xs py-14 border-t border-gray-800 relative">
+        <!-- "TOP" Button on top-right -->
+        <a href="#" class="absolute top-0 right-10 -translate-y-1/2 w-10 h-10 rounded-full bg-[#1C1D1F] border border-gray-700 text-gray-300 hover:text-white flex items-center justify-center text-[10px] font-bold shadow-lg transition">
+            ▲ TOP
+        </a>
+
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
+            <!-- Center Circular Emblem -->
+            <div class="flex items-center justify-center gap-2">
+                <span class="w-7 h-7 rounded-full bg-white text-[#22201E] font-bold flex items-center justify-center text-xs">
+                    8
+                </span>
+                <span class="font-extrabold text-white text-sm font-myeongjo tracking-tight">
+                    CAMPUS ECO-NUTRITIONIST
+                </span>
+            </div>
+
+            <!-- Policy Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 text-[11px] text-gray-400">
+                <a href="#" class="hover:text-gray-200">개인정보처리방침</a>
+                <span>|</span>
+                <a href="#" class="hover:text-gray-200">이용약관</a>
+                <span>|</span>
+                <a href="#" class="hover:text-gray-200">이메일무단수집거부</a>
+                <span>|</span>
+                <a href="#" class="hover:text-gray-200">프로젝트소개</a>
+            </div>
+
+            <!-- Business / Legal Credits -->
+            <div class="text-[11px] text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                <p>프로젝트명: Campus Eco-Nutritionist 청년 식복지 혁신 | 대표: 최인호 (충남대학교 식품영양학 전공, GPA 4.27)</p>
+                <p>주소: 대전광역시 유성구 대학로 99 충남대학교 산학협력단 | 문의: inho4418@gmail.com</p>
+                <p>협력 기관: 충남대학교 산학협력단 · 대전 창업 플랫폼 '모두의창업' · 충남대 요리 동아리 네트워크</p>
+                <p class="text-gray-400 pt-2">Copyright © 2026 Campus Eco-Nutritionist. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Detail Modal -->
+    <div id="detail-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs">
+        <div class="bg-white max-w-lg w-full rounded-sm shadow-2xl p-6 relative border border-gray-300 space-y-4">
+            <button onclick="closeDetailModal()" class="absolute top-4 right-4 text-gray-500 hover:text-black font-bold">✕</button>
+            <div class="flex items-center gap-4">
+                <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-black shrink-0">
+                    <img id="modal-img" src="" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h3 id="modal-title" class="font-bold text-lg font-myeongjo">메뉴명</h3>
+                    <div class="text-xs text-[#C84B31] font-bold" id="modal-price">3,500원</div>
+                    <p class="text-[11px] text-gray-500 mt-1" id="modal-desc">설명</p>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-3 rounded text-xs space-y-1 border border-gray-200">
+                <div class="font-bold text-gray-900 mb-1">식품영양학 설계 분석표</div>
+                <div class="grid grid-cols-4 text-center text-[11px]">
+                    <div>열량: <strong id="modal-cal">485</strong>kcal</div>
+                    <div>단백질: <strong id="modal-protein" class="text-emerald-600">32</strong>g</div>
+                    <div>탄수화물: <strong id="modal-carbs">42</strong>g</div>
+                    <div>나트륨: <strong id="modal-sodium">680</strong>mg</div>
+                </div>
+            </div>
+            <div class="text-xs text-gray-700 space-y-1">
+                <div class="font-bold text-gray-900">5분 초간단 조리 가이드:</div>
+                <p id="modal-steps" class="text-gray-600 text-[11px] leading-relaxed"></p>
+            </div>
+            <button onclick="closeDetailModal(); document.getElementById('사전예약신청').scrollIntoView({behavior:'smooth'});" 
+                    class="w-full bg-[#1C1D1F] hover:bg-black text-white text-xs font-bold py-3 rounded-sm transition">
+                이 메뉴로 사전예약 신청하기 ─→
+            </button>
+        </div>
+    </div>
+
+    <!-- Interactive Script -->
+    <script>
+        const MEALS = {
+            'cnu-beef-hotpot': {
+                name: '소고기 버섯 맑은 전골',
+                price: '3,500 원',
+                desc: '신선한 우목심과 대전 로컬 표고·팽이버섯을 듬뿍 담은 깊은 맛의 전골',
+                cal: '485',
+                protein: '32',
+                carbs: '42',
+                sodium: '680',
+                img: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=500&q=80',
+                steps: '냄비에 물 350ml와 만능육수 팩을 넣고 끓인 뒤, 세척 손질된 로컬 채소와 우목심을 넣고 2분간 더 끓여주면 완성!'
+            },
+            'cnu-beef-sprout': {
+                name: '우삼겹 아삭 숙주 볶음',
+                price: '3,800 원',
+                desc: '아삭한 로컬 숙주나물과 고소한 우삼겹을 비법 굴소스 베이스로 센 불에 5분 만에 완성',
+                cal: '510',
+                protein: '28',
+                carbs: '35',
+                sodium: '720',
+                img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80',
+                steps: '팬에 우삼겹을 볶아 기름을 낸 뒤 숙주나물과 특제소스를 넣고 강불에서 2분간 빠르게 볶아 통깨를 뿌려 완성!'
+            },
+            'cnu-chicken-bowl': {
+                name: '매콤 닭안심 채소 덮밥',
+                price: '3,200 원',
+                desc: '부드러운 국내산 닭안심살과 로컬 파프리카, 양파를 매콤달콤한 저당 특제소스에 버무린 고단백 식단',
+                cal: '430',
+                protein: '34',
+                carbs: '48',
+                sodium: '590',
+                img: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80',
+                steps: '팬에 식용유를 두르고 닭안심을 노릇하게 굽다가 야채 믹스와 저당 소스를 넣고 볶아 따뜻한 밥 위에 얹어 비벼 드세요.'
+            },
+            'cnu-tofu-gangdoenjang': {
+                name: '두부 버섯 강된장 비빔밥',
+                price: '2,900 원',
+                desc: '국산 콩 두부와 애호박, 버섯을 잘게 썰어 넣은 구수한 전통 강된장과 비빔 채소',
+                cal: '395',
+                protein: '22',
+                carbs: '52',
+                sodium: '640',
+                img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80',
+                steps: '작은 뚝배기나 팬에 두부 강된장 소스를 넣고 자작하게 2분간 끓여 신선한 비빔 채소와 함께 밥에 쓱쓱 비벼 드세요.'
+            }
+        };
+
+        let remainingSeats = 4;
+
+        function openDetailModal(key) {
+            const meal = MEALS[key];
+            if (!meal) return;
+            document.getElementById('modal-img').src = meal.img;
+            document.getElementById('modal-title').innerText = meal.name;
+            document.getElementById('modal-price').innerText = meal.price;
+            document.getElementById('modal-desc').innerText = meal.desc;
+            document.getElementById('modal-cal').innerText = meal.cal;
+            document.getElementById('modal-protein').innerText = meal.protein;
+            document.getElementById('modal-carbs').innerText = meal.carbs;
+            document.getElementById('modal-sodium').innerText = meal.sodium;
+            document.getElementById('modal-steps').innerText = meal.steps;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        }
+
+        function selectPickup(name) {
+            document.getElementById('form-pickup-select').value = name.includes('생활관') ? '충남대 생활관점' : (name.includes('궁동') ? '궁동 로데오점' : '어은동 카이스트점');
+            showToast(`📍 [${name}] 거점이 선택되었습니다.`);
+            document.getElementById('사전예약신청').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterPickupStations() {
+            const query = document.getElementById('pickup-search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('#pickup-cards-container > div');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-input-name').value;
+            const pickup = document.getElementById('form-pickup-select').value;
+
+            remainingSeats = Math.max(1, remainingSeats - 1);
+            document.getElementById('top-seats').innerText = remainingSeats;
+            document.getElementById('form-seats').innerText = remainingSeats;
+
+            const ticketNum = 20 - remainingSeats;
+            const ticketCode = `CNU-ECO-${String(ticketNum).padStart(3, '0')}`;
+
+            document.getElementById('ticket-name').innerText = name;
+            document.getElementById('ticket-code').innerText = ticketCode;
+            document.getElementById('ticket-pickup-loc').innerText = pickup;
+
+            document.getElementById('main-reservation-form').classList.add('hidden');
+            document.getElementById('ticket-success').classList.remove('hidden');
+
+            showToast(`🎉 ${name} 학우님 사전예약 접수 완료! (티켓: ${ticketCode})`);
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            document.getElementById('toast-text').innerText = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => { t.classList.add('hidden'); }, 3000);
+        }
+    </script>
+</body>
+</html>
